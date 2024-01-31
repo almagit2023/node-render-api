@@ -2,6 +2,7 @@ const express = require('express');
 const app = express()
 const config = require('dotenv').config();
 const port  = process.env.PORT || 5006
+const jsonData = require('./jsonData')
 
 
 app.use(middleWare)
@@ -18,6 +19,10 @@ app.get('/', (req, res)=>{
 
 app.get('/home',(req, res)=>{
   res.send("<h1>Welcome to HOME page</h1>")
+})
+
+app.get('/api/data', (req, res)=>{
+  res.json(jsonData);
 })
 
 
